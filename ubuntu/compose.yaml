@@ -1,0 +1,5 @@
+services:
+  ubuntu:
+    build: .
+    volumes:
+      - ./workspace:/home/snow/workspace
