@@ -18,6 +18,7 @@ RUN apt install -y \
   software-properties-common \
   jq
 RUN add-apt-repository ppa:longsleep/golang-backports && apt install -y golang-go
+ENV PATH ${PATH}:/home/${USER_NAME}/go/bin
 
 # Add user without password
 RUN useradd -m -s /bin/bash ${USER_NAME}
