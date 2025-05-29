@@ -20,11 +20,11 @@ RUN apt install -y \
 
 # Go
 RUN add-apt-repository ppa:longsleep/golang-backports && apt install -y golang-go
-ENV PATH ${PATH}:/home/${USER_NAME}/go/bin
+ENV PATH=${PATH}:/home/${USER_NAME}/go/bin
 
 # Japanese
 RUN apt install -y locales && locale-gen ja_JP.UTF-8
-ENV LANG ja_JP.UTF-8
+ENV LANG=ja_JP.UTF-8
 
 # Add user without password
 RUN useradd -m -s /bin/bash ${USER_NAME}
