@@ -21,11 +21,11 @@ RUN apt-get update && \
   git
 
 # Go
-RUN add-apt-repository ppa:longsleep/golang-backports && apt install -y golang-go
+RUN add-apt-repository ppa:longsleep/golang-backports && apt-get install -y golang-go
 ENV PATH=${PATH}:/home/${USER_NAME}/go/bin
 
 # Japanese
-RUN apt install -y locales && locale-gen ja_JP.UTF-8
+RUN apt-get install -y locales && locale-gen ja_JP.UTF-8
 ENV LANG=ja_JP.UTF-8
 
 # Add user without password
