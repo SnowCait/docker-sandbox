@@ -16,7 +16,8 @@ RUN apt install -y \
   telnet \
   traceroute \
   software-properties-common \
-  jq
+  jq \
+  git
 
 # Go
 RUN add-apt-repository ppa:longsleep/golang-backports && apt install -y golang-go
