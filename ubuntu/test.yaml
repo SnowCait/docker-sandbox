@@ -1,0 +1,76 @@
+schemaVersion : 2.0.0
+
+commandTests:
+  - name: "man"
+    command: "which"
+    args: ["man"]
+    expectedOutput: ["/usr/bin/man"]
+  - name: "vim"
+    command: "which"
+    args: ["vim"]
+    expectedOutput: ["/usr/bin/vim"]
+  - name: "curl"
+    command: "which"
+    args: ["curl"]
+    expectedOutput: ["/usr/bin/curl"]
+  - name: "wget"
+    command: "which"
+    args: ["wget"]
+    expectedOutput: ["/usr/bin/wget"]
+  - name: "host"
+    command: "which"
+    args: ["host"]
+    expectedOutput: ["/usr/bin/host"]
+  - name: "nslookup"
+    command: "which"
+    args: ["nslookup"]
+    expectedOutput: ["/usr/bin/nslookup"]
+  - name: "dig"
+    command: "which"
+    args: ["dig"]
+    expectedOutput: ["/usr/bin/dig"]
+  - name: "ping"
+    command: "which"
+    args: ["ping"]
+    expectedOutput: ["/usr/bin/ping"]
+  - name: "ifconfig"
+    command: "which"
+    args: ["ifconfig"]
+    expectedOutput: ["/usr/sbin/ifconfig"]
+  - name: "telnet"
+    command: "which"
+    args: ["telnet"]
+    expectedOutput: ["/usr/bin/telnet"]
+  - name: "traceroute"
+    command: "which"
+    args: ["traceroute"]
+    expectedOutput: ["/usr/sbin/traceroute"]
+  - name: "jq"
+    command: "which"
+    args: ["jq"]
+    expectedOutput: ["/usr/bin/jq"]
+  - name: "Git"
+    command: "which"
+    args: ["git"]
+    expectedOutput: ["/usr/bin/git"]
+  - name: "Go"
+    command: "which"
+    args: ["go"]
+    expectedOutput: ["/usr/bin/go"]
+  - name: "Go version"
+    command: "go"
+    args: ["version"]
+    expectedOutput: ["go version go1.22"]
+
+fileExistenceTests:
+  - name: "Home"
+    path: "/home/snow"
+    shouldExist: true
+
+metadataTest:
+  envVars:
+    - key: "LANG"
+      value: "ja_JP.UTF-8"
+  entrypoint: []
+  workdir: "/home/snow"
+  user: "snow"

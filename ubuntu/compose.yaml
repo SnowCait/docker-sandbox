@@ -1,5 +1,16 @@
 services:
   ubuntu:
     build: .
+    image: ubuntu-playground
     volumes:
       - ./workspace:/home/snow/workspace
+
+  cst:
+    image: gcr.io/gcp-runtimes/container-structure-test:latest
+    environment:
+      # Expose daemon on tcp://localhost:2375 without TLS in Docker Desktop for Windows
+      - DOCKER_HOST=tcp://host.docker.internal:2375
+    volumes:
+      - ./test.yaml:/config.yaml
+    entrypoint: >
+      /container-structure-test test --image ubuntu-playground --config /config.yaml
