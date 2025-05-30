@@ -18,14 +18,15 @@ RUN apt-get update && \
   traceroute \
   software-properties-common \
   jq \
-  git
+  git \
+  golang
 
-# Go
-RUN add-apt-repository ppa:longsleep/golang-backports && apt-get install -y golang-go
-ENV PATH=${PATH}:/home/${USER_NAME}/go/bin
+# # If latest Go is required
+# RUN add-apt-repository ppa:longsleep/golang-backports && apt-get update && apt-get install -y golang-go
+# ENV PATH=${PATH}:/home/${USER_NAME}/go/bin
 
 # Japanese
-RUN apt-get install -y locales && locale-gen ja_JP.UTF-8
+RUN apt-get update && apt-get install -y locales && locale-gen ja_JP.UTF-8
 ENV LANG=ja_JP.UTF-8
 
 # Add user without password
