@@ -8,6 +8,7 @@ RUN apt-get update && \
   apt-get install -y \
   man-db \
   sudo \
+  locales \
   vim \
   curl \
   wget \
@@ -16,17 +17,12 @@ RUN apt-get update && \
   net-tools \
   telnet \
   traceroute \
-  software-properties-common \
   jq \
   git \
   golang
 
-# # If latest Go is required
-# RUN add-apt-repository ppa:longsleep/golang-backports && apt-get update && apt-get install -y golang-go
-# ENV PATH=${PATH}:/home/${USER_NAME}/go/bin
-
 # Japanese
-RUN apt-get update && apt-get install -y locales && locale-gen ja_JP.UTF-8
+RUN locale-gen ja_JP.UTF-8
 ENV LANG=ja_JP.UTF-8
 
 # Add user without password
